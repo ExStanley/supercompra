@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65C62E8A-9364-498C-8E67-28AC5BA100E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STA.SuperCompra.Dominio</RootNamespace>
+    <AssemblyName>STA.SuperCompra.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DomainValidation.1.0.0\lib\net45\DomainValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Compra.cs" />
+    <Compile Include="Entidades\ItensCompra.cs" />
+    <Compile Include="Entidades\Produto.cs" />
+    <Compile Include="Entidades\UnidadeMedida.cs" />
+    <Compile Include="Interfaces\Repository\ICategoriaRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICompraRepository.cs" />
+    <Compile Include="Interfaces\Repository\IitensCompraRepository.cs" />
+    <Compile Include="Interfaces\Repository\IProdutoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Interfaces\Repository\IUnidadeMedidaRepository.cs" />
+    <Compile Include="Interfaces\Service\ICategoriaService.cs" />
+    <Compile Include="Interfaces\Service\ICompraService.cs" />
+    <Compile Include="Interfaces\Service\IItensCompraService.cs" />
+    <Compile Include="Interfaces\Service\IProdutoService.cs" />
+    <Compile Include="Interfaces\Service\IUnidadeMedidaService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoriaService.cs" />
+    <Compile Include="Services\CompraService.cs" />
+    <Compile Include="Services\ItensCompraService.cs" />
+    <Compile Include="Services\ProdutoService.cs" />
+    <Compile Include="Services\UnidadeMedidaService.cs" />
+    <Compile Include="Specifications\Categorias\CategoriaDeveSerUnicoSpecification.cs" />
+    <Compile Include="Specifications\Produtos\ProdutoDeveSerUnicoSpecification.cs" />
+    <Compile Include="Validations\Categorias\CategoriaAptoParaCadastroValidation.cs" />
+    <Compile Include="Validations\Categorias\CategoriaEstaConsistenteValidation.cs" />
+    <Compile Include="Validations\Documentos\CNPJValidation.cs" />
+    <Compile Include="Validations\Documentos\CPFValidation.cs" />
+    <Compile Include="Validations\Documentos\EmailValidation.cs" />
+    <Compile Include="Validations\Produtos\ProdutoAptoParaCadastroValidation.cs" />
+    <Compile Include="Validations\Produtos\ProdutoEstaConsistenteValidation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Specifications\Compras\" />
+    <Folder Include="Specifications\Itens\" />
+    <Folder Include="Specifications\Unidades\" />
+    <Folder Include="Validations\Compras\" />
+    <Folder Include="Validations\Itens\" />
+    <Folder Include="Validations\Unidades\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

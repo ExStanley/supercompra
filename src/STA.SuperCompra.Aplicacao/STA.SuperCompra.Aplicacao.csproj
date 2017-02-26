@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{063DE094-FE2A-43AD-8991-652DD5D63E7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STA.SuperCompra.Aplicacao</RootNamespace>
+    <AssemblyName>STA.SuperCompra.Aplicacao</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DomainValidation.1.0.0\lib\net45\DomainValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationService.cs" />
+    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Interfaces\ICategoriaAppService.cs" />
+    <Compile Include="Interfaces\ICompraAppService.cs" />
+    <Compile Include="Interfaces\IItensCompraAppService.cs" />
+    <Compile Include="Interfaces\IProdutoAppService.cs" />
+    <Compile Include="Interfaces\IUnidadeMedidaAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoriaAppService.cs" />
+    <Compile Include="Services\CompraAppService.cs" />
+    <Compile Include="Services\ItensCompraAppService.cs" />
+    <Compile Include="Services\ProdutoAppService.cs" />
+    <Compile Include="Services\UnidadeMedidaAppService.cs" />
+    <Compile Include="ViewModels\CategoriaViewModel.cs" />
+    <Compile Include="ViewModels\CompraViewModel.cs" />
+    <Compile Include="ViewModels\ItensCompraViewModel.cs" />
+    <Compile Include="ViewModels\ProdutoViewModel.cs" />
+    <Compile Include="ViewModels\UnidadeMedidaViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\STA.SuperCompra.Dominio\STA.SuperCompra.Dominio.csproj">
+      <Project>{65C62E8A-9364-498C-8E67-28AC5BA100E7}</Project>
+      <Name>STA.SuperCompra.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STA.SuperCompra.Infra.CrossCutting.MvcFilters\STA.SuperCompra.Infra.CrossCutting.MvcFilters.csproj">
+      <Project>{aaa685e5-0aab-4f4b-8fd1-0a47692331a3}</Project>
+      <Name>STA.SuperCompra.Infra.CrossCutting.MvcFilters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STA.SuperCompra.Infra.Dados\STA.SuperCompra.Infra.Dados.csproj">
+      <Project>{0C2367C8-4C70-4F75-98ED-13392BB6482C}</Project>
+      <Name>STA.SuperCompra.Infra.Dados</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

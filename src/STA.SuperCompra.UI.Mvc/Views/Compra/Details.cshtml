@@ -1,0 +1,68 @@
+﻿@model STA.SuperCompra.Aplicacao.ViewModels.CompraViewModel
+
+@{
+    ViewBag.Title = "Detalhes da compra";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="">
+            <div class="painel panel-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">@Model.NomeLista</h4>
+                </div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NomeLista)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NomeLista)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NomeEstabelecimento)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NomeEstabelecimento)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FormaPagamento)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.FormaPagamento)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DataCompra)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DataCompra)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Total)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Total)
+                    </dd>
+                </dl>
+            </div>
+            <div class="panel-footer">
+                <a href="@Url.Action("Edit", "Compra", new {id = Model.CompraId})" data-modal="" class="btn btn-primary">
+                    <span title="Editar" class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a href="@Url.Action("Delete", "Compra", new { id = Model.CompraId })" data-modal="" class="btn btn-danger">
+                    <span title="Excluir" class="glyphicon glyphicon-trash"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

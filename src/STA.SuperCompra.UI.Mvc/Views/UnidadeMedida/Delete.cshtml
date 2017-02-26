@@ -1,0 +1,40 @@
+﻿@model STA.SuperCompra.Aplicacao.ViewModels.UnidadeMedidaViewModel
+
+@{
+    ViewBag.Title = "Excluir unidade de medida";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Deseja confirmar realizar a exclusão da unidade?</h3>
+<div>
+    <h4>UnidadeMedidaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Lista de unidade", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@using GridMvc.Html
+@model IEnumerable<STA.SuperCompra.Aplicacao.ViewModels.ProdutoViewModel>
+
+@{
+    ViewBag.Title = "Gestão de Produtos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>@ViewBag.Title</strong>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacao)
+            </th>
+            <th>Ações</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeProduto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observacao)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Produto", new {id = item.ProdutoId}) " class="btn btn-primary"><span title="Editar" class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="@Url.Action("Details", "Produto", new {id = item.ProdutoId}) " class="btn btn-info"><span title="Detalhes" class="glyphicon glyphicon-list-alt"></span></a>
+                    <a href="@Url.Action("Delete", "Produto", new {id = item.ProdutoId}) " class="btn btn-danger"><span title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div>
+    <div class="form-group">
+        @Html.ActionLink("Novo produto", "Create", "Produto", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

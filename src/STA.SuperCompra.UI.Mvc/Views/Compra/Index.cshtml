@@ -1,0 +1,72 @@
+﻿@model IEnumerable<STA.SuperCompra.Aplicacao.ViewModels.CompraViewModel>
+
+@{
+    ViewBag.Title = "Gestão de compras";
+}
+
+
+
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>@ViewBag.Title</strong>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeLista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeEstabelecimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormaPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>Ações</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeLista)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeEstabelecimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormaPagamento)
+                </td>
+                <td>
+                    @string.Format("{0:dd/MM/yyyy}", Convert.ToDateTime(Html.DisplayFor(modelItem => item.DataCompra).ToString()))
+                    
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Compra", new {id = item.CompraId}) " class="btn btn-default"><span title="Editar" class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="@Url.Action("Details", "Compra", new {id = item.CompraId}) " class="btn btn-default"><span title="Detalhes" class="glyphicon glyphicon-search"></span></a>
+                    <a href="@Url.Action("Edit", "Compra", new {id = item.CompraId}) " class="btn btn-danger"><span title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<div>
+    <div class="form-group">
+        @Html.ActionLink("Nova compra", "Create", "Compra", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

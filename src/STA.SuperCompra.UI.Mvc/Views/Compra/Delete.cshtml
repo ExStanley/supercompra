@@ -1,0 +1,63 @@
+﻿@model STA.SuperCompra.Aplicacao.ViewModels.CompraViewModel
+
+@{
+    ViewBag.Title = "Lista de compras";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Tem certeza de que deseja excluir esta Lista de compras?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeLista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeLista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeEstabelecimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeEstabelecimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
